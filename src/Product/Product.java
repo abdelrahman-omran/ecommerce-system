@@ -7,8 +7,8 @@ public class Product {
     private int quantity;
     private boolean expirable;
     private boolean shippable;
-    private double weight; // applicable if shippable = true
-    private LocalDate expiryDate; // applicable if expirable = true
+    private double weight;
+    private LocalDate expiryDate;
 
     public Product(String name, double price, int quantity,
                    boolean expirable, boolean shippable,
@@ -27,6 +27,26 @@ public class Product {
             return LocalDate.now().isAfter(this.expiryDate);
         }
         return false;
+    }
+
+    public void reduceQuantity(int amount) {
+        if (amount > this.quantity) {
+            System.out.println("Not enough " + this.name + " in stock.");
+        }
+        this.quantity -= amount;
+    }
+    public void addQuantity(int amount) {
+        if (amount < 0) {
+            System.out.println("Cannot add negative quantity.");
+        }
+        this.quantity += amount;
+    }
+
+    public void setPrice(double newPrice) {
+        if (newPrice < 0) {
+            System.out.println("Price cannot be negative.");
+        }
+        this.price = newPrice;
     }
 
     public boolean isExpirable() {
@@ -55,11 +75,4 @@ public class Product {
     public int getQuantity() {
         return quantity;
     }
-
-/*    public void reduceQuantity(int amount) {
-        if (amount > quantity) {
-            throw new IllegalArgumentException("Not enough " + name + " in stock.");
-        }
-        quantity -= amount;
-    }*/
 }
