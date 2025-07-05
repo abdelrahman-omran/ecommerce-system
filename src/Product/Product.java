@@ -32,12 +32,14 @@ public class Product {
     public void reduceQuantity(int amount) {
         if (amount > this.quantity) {
             System.out.println("Not enough " + this.name + " in stock.");
+            return;
         }
         this.quantity -= amount;
     }
     public void addQuantity(int amount) {
         if (amount < 0) {
             System.out.println("Cannot add negative quantity.");
+            return;
         }
         this.quantity += amount;
     }
