@@ -55,7 +55,7 @@ public class Product {
         return this.expirable;
     }
 
-    public boolean requiresShipping() {
+    public boolean isShippable() {
         return this.shippable;
     }
 

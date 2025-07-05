@@ -1,6 +1,8 @@
 import Product.Product;
 import Cart.*;
 import Shipping.*;
+import Customer.Customer;
+import Checkout.CheckoutService;
 import java.time.LocalDate;
 
 public class Main {
@@ -9,14 +11,12 @@ public class Main {
         Product tv = new Product("TV", 300, 2, false, true, 5.0, null);
         Product scratchCard = new Product("Scratch Card", 50, 10, false, false, 0.0, null);
 
-        Cart cart = new Cart();
-        cart.add(cheese, 2);
-        cart.add(tv, 1);
-        cart.add(scratchCard, 1);
+        Cart cart1 = new Cart();
+        cart1.add(cheese, 2);
+        cart1.add(tv, 1);
+        cart1.add(scratchCard, 1);
 
-        if(!cart.isEmpty())
-            cart.printCart();
-        else
-            System.out.println("Cart is Empty");
+        Customer customer1 = new Customer("Ali", 600);
+        CheckoutService.checkout(cart1, customer1);
     }
 }

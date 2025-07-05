@@ -42,7 +42,9 @@ public class Cart {
             }
         }
     }
-
+    public List<CartItem> getItems() {
+        return Collections.unmodifiableList(items);
+    }
     // remove all items
     public void clear() {
         items.clear();
