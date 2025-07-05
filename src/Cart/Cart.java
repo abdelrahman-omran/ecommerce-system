@@ -43,7 +43,9 @@ public class Cart {
         }
     }
     public List<CartItem> getItems() {
-        return Collections.unmodifiableList(items);
+        List<CartItem> copy = new ArrayList<>();
+        copy.addAll(this.items);
+        return copy;
     }
     // remove all items
     public void clear() {
